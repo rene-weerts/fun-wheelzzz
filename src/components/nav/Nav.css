@@ -1,76 +1,57 @@
-nav ul a,
-nav ul a:visited {
-    color: black;
-    text-decoration: none;
-}
-
-.default-link {
-    /*Deze is nodig zodat er niks beweegt ivm 1px kleur en geen kleur*/
-    border-bottom: 1px solid transparent;
-}
-
-.active-link {
-    border-bottom: 1px solid black;
-}
-
-
-
-.nav-container {
-    flex-basis: 1000px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 nav {
+    display: flex;
+    justify-content: flex-start;
     width: 100%;
-    background: linear-gradient(153deg, rgba(70, 67, 226, 1) 0%, rgba(110, 34, 205, 1) 100%);
-    display: flex;
-    justify-content: center;
     height: 80px;
-}
-
-nav a,
-nav a:visited {
-    text-decoration: none;
-}
-
-nav a:hover {
-    color: white;
-}
-
-ul {
-    list-style-type: none;
-    flex-basis: 550px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
+    background-color: var(--cl-bgc);
 
 }
-ul li Navlink {
-    color: white;
-}
 
-h2 {
-    color: white;
-}
-.button-container {
+.wheelzzz-container {
     display: flex;
     flex-direction: row;
-    width: auto;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 24px;
+
+
+}
+
+.ul-nav {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 1000px;
+    list-style-type: none;
     justify-content: space-evenly;
-
-
-}
-.register-button {
-    padding: 6px 10px;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 24px;
 
 }
-.login-button {
-    padding: 6px 10px;
+
+
+.name-funwheelzzz {
+    font-size: xxx-large;
+    color: var(--cl-rood);
 }
-.logout-button {
-    padding: 6px 10px;
+
+.img-vlag {
+    margin-left: 30px;
+    margin-top: 13px;
+
 }
+
+a {
+    text-transform: uppercase;
+    /*font-size: 18px;*/
+    text-decoration: -webkit-activelink none;
+    /*color: var(--cl-zwart);*/
+}
+
+#top5-color {
+    font-size: 25px;
+    color: var(--cl-rood);
+
+}
+

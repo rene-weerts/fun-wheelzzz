@@ -1,87 +1,86 @@
 import React from 'react';
 import './Nav.css';
-import flag from "../../assets/limburgse-vlag.png"
-import {NavLink, useNavigate} from "react-router-dom";
+import flag from '../../assets/Limburgse-vlag.png';
+import {NavLink, useNavigate} from 'react-router-dom';
 
-function Nav({auth, setAuth}) {
-    const navigate = useNavigate()
-    function handleRegister (e){
-        e.preventDefault()
-        setAuth(true)
-        navigate("/register")
+const Nav = ({auth, setAuth}) => {
+
+    const navigate = useNavigate();
+    const navLinkStyles = ({isActive}) => {
+        return {
+            fontWeight: isActive ? 'bolder' : 'normal',
+            textDecoration: isActive ? 'underline dashed var(--cl-rood' : 'none',
+        };
+    };
+
+    function handleRegister(e) {
+        e.preventDefault();
+        setAuth(true);
+        navigate('/register');
+
     }
 
-    return (<nav>
-            <div className="nav-container">
-                <img src={flag} alt="vlag"/>
-                <h2>Fun Wheelzzz</h2>
+    return (
 
-                <ul>
-
-                    { auth && <NavLink
-                        className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
-                        to="/">
-                        Home
-                    </NavLink>}
-
-                    { auth && <NavLink
-                        className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
-                        to="/top5">
-                        Top 5
-                    </NavLink>}
-                    { auth && <NavLink
-                        className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
-                        to="/maps">
-                        Maps
-                    </NavLink>}
-
-                    { auth && <NavLink
-                        className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
-                        to="/strava">
-                        Strava
-                    </NavLink>}
-
-                    {  auth &&<NavLink
-                        className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
-                        to="/events">
-                        Events
-                    </NavLink>}
-
-                    {  auth && <NavLink
-                        className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
-                        to="/places">
-                        Places
-                    </NavLink>}
-                    { auth && <NavLink
-                        className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
-                        to="/profile">
-                        Profile
-                    </NavLink>}
-
-                    { auth && <NavLink
-                        className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
-                        to="/login">
-                        Login
-                    </NavLink>}
-                    {auth && <NavLink
-                        className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
-                        to="/repair">
-                        Repair
-                    </NavLink>}
-                    {/*{auth && <NavLink*/}
-                    {/*    className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}*/}
-                    {/*    to="/register">*/}
-                    {/*    Register*/}
-                    {/*</NavLink>}*/}
-                </ul>
-                <div className="button-container">
-                    <button type="button" className="register-button" onClick={()=>handleRegister} >Register</button>
-                    <button type="button" className="login-button" onClick={() =>{setAuth(true);}} >Login</button>
-                    {auth &&  <button type="button" className="logout-button"  onClick={() =>{setAuth(false);}} >logout</button>}
+        <nav>
+            <div className="wheelzzz-container" id="header-home">
+                <div>
+                    <p className="name-funwheelzzz">Fun Wheelzzz</p>
                 </div>
+                <div className="img-vlag">
+                    <img src={flag} alt="Limburgse-vlag" width="45" height="25"/>
+                </div>
+
             </div>
+
+
+            <ul className="ul-nav">
+
+                {auth && <NavLink
+                    className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
+                    to="/" style={navLinkStyles}>
+                    <p>Home</p>
+                </NavLink>}
+
+                {auth && <NavLink
+                    className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
+                    to="/top5" style={navLinkStyles}>
+                    <p id="top5-color">Top 5</p>
+                </NavLink>}
+
+                {auth && <NavLink
+                    className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
+                    to="/regio" style={navLinkStyles}>
+                    <p>Regio</p>
+                </NavLink>}
+
+
+                {auth && <NavLink
+                    className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
+                    to="/" style={navLinkStyles}><p>
+                    Contact</p>
+
+                </NavLink>}
+
+                {auth &&
+                    <NavLink to="login" onClick={() => {
+                        setAuth(false);
+                    }} style={navLinkStyles}><p>Logout</p></NavLink>}
+
+                {!auth && <NavLink className="login-link" to="/login" onClick={() => {
+                    setAuth(true);
+                }} style={navLinkStyles}><p>Login</p></NavLink>}
+
+                {!auth && <NavLink className="register-link" to="/Register" onClick={() => {
+                    setAuth(true);
+                }} style={navLinkStyles}><p>Register</p></NavLink>}
+
+
+            </ul>
+
+
         </nav>);
-}
+};
 
 export default Nav;
 

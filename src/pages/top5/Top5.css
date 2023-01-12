@@ -1,7 +1,8 @@
-.active-menu-link {
-    border-bottom: 1px solid black;
-}
+.top5-outer-container{
 
-.default-menu-link {
-    border-bottom: none;
+    background: rgb(153, 2, 120);
+    background: linear-gradient(153deg, rgba(153, 2, 120, 1) 0%, rgba(140, 140, 140, 1) 100%);
+}
+.top5-image{
+    opacity: 0.73;
 }
